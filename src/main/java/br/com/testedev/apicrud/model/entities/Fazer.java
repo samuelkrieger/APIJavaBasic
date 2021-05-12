@@ -1,5 +1,8 @@
 package br.com.testedev.apicrud.model.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,25 +11,25 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity(name = "TODO")
-public class Todo implements Serializable {
+@Entity(name = "FAZER")
+public class Fazer implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @GenericGenerator(name = "sq_fazer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {@Parameter(name = "sequence_name", value = "sq_fazer"),
+                    @Parameter(name = "initial_value", value = "1"),
+                    @Parameter(name = "increment_size", value = "1")})
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sq_fazer")
     private Integer id;
-
     private String titulo;
     private String descricao;
     private LocalDateTime dataParaFinalizar;
     private Boolean finalizado = false;
-
-    public Todo() {
-        super();
+    public Fazer() {
     }
 
-    public Todo(Integer id, String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean finalizado) {
+    public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean finalizado) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -77,9 +80,9 @@ public class Todo implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Todo)) return false;
-        Todo todo = (Todo) o;
-        return Objects.equals(getId(), todo.getId()) && Objects.equals(getTitulo(), todo.getTitulo()) && Objects.equals(getDescricao(), todo.getDescricao()) && Objects.equals(getDataParaFinalizar(), todo.getDataParaFinalizar()) && Objects.equals(getFinalizado(), todo.getFinalizado());
+        if (!(o instanceof Fazer)) return false;
+        Fazer fazer = (Fazer) o;
+        return Objects.equals(getId(), fazer.getId()) && Objects.equals(getTitulo(), fazer.getTitulo()) && Objects.equals(getDescricao(), fazer.getDescricao()) && Objects.equals(getDataParaFinalizar(), fazer.getDataParaFinalizar()) && Objects.equals(getFinalizado(), fazer.getFinalizado());
     }
 
     @Override
