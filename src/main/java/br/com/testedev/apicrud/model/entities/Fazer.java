@@ -11,14 +11,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity(name = "FAZER")
+@Entity(name = "fazer")
 public class Fazer implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @GenericGenerator(name = "sq_fazer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
-            parameters = {@Parameter(name = "sequence_name", value = "sq_fazer"),
-                    @Parameter(name = "initial_value", value = "1"),
-                    @Parameter(name = "increment_size", value = "1")})
+    @GenericGenerator(name = "sq_fazer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {@Parameter(name = "sequence_name", value = "sq_fazer"), @Parameter(name = "initial_value", value = "1"), @Parameter(name = "increment_size", value = "1")})
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sq_fazer")
     private Integer id;
@@ -26,15 +23,15 @@ public class Fazer implements Serializable {
     private String descricao;
     private LocalDateTime dataParaFinalizar;
     private Boolean finalizado = false;
+
     public Fazer() {
     }
 
-    public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean finalizado) {
+    public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataParaFinalizar = dataParaFinalizar;
-        this.finalizado = finalizado;
     }
 
     public Integer getId() {
