@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/fazer")
-public class TodoController {
+public class FazerController {
 
     @Autowired
     private FazerService service;
@@ -22,7 +24,16 @@ public ResponseEntity<Fazer> findById(@PathVariable Integer id){
         return ResponseEntity.ok().body(obj);
     }
 
+    @GetMapping(value = "/aberto")
+    public ResponseEntity<List<Fazer>> listAbertas(){
+        List<Fazer> list = service.findAllAbertas();
+        return ResponseEntity.ok().body(list);
+    }
 
-
+    @GetMapping(value = "/fechadas")
+    public ResponseEntity<List<Fazer>> listFechado(){
+        List<Fazer> list = service.findAllFechadas();
+        return ResponseEntity.ok().body(list);
+    }
 
 }
