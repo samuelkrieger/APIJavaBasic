@@ -16,7 +16,6 @@ public class FazerService {
     private FazerRepository fazerRepository;
 
     public Fazer findById(Integer id){
-
         Optional<Fazer> obj = fazerRepository.findById(id);
         return obj.orElseThrow(()->new ObjectNotFoundException(
                 "Objeto Nao Encontrado! Id: " +id+", Tipo : "+Fazer.class.getName()));
@@ -50,6 +49,14 @@ public class FazerService {
         fazerRepository.deleteById(id);
     }
 
+    public Fazer atualizaFazer(Integer id, Fazer obj) {
+        Fazer newObj = findById(id);
+        newObj.setTitulo(obj.getTitulo());
+        newObj.setDataParaFinalizar(obj.getDataParaFinalizar());
+        newObj.setDescricao(obj.getDescricao());
+        newObj.setFinalizado(obj.getFinalizado());
+            return fazerRepository.save(newObj);
+    }
 }
 
 
