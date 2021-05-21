@@ -14,48 +14,48 @@ import java.util.List;
 @RequestMapping(value = "/fazer")
 public class FazerController {
     @Autowired
-    private FazerService service;
+    private FazerService fazerService;
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Fazer> findById(@PathVariable Integer id) {
-        Fazer obj = service.findById(id);
+        Fazer obj = fazerService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @GetMapping(value = "/abertas")
     public ResponseEntity<List<Fazer>> listAbertas() {
-        List<Fazer> list = service.findAllAbertas();
+        List<Fazer> list = fazerService.findAllAbertas();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/fechadas")
     public ResponseEntity<List<Fazer>> listFechado() {
-        List<Fazer> list = service.findAllFechadas();
+        List<Fazer> list = fazerService.findAllFechadas();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping
     public ResponseEntity<List<Fazer>> listTodas() {
-        List<Fazer> list = service.findAll();
+        List<Fazer> list = fazerService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
     public ResponseEntity<Fazer> Criar(@RequestBody Fazer obj) {
-        obj = service.criarFazer(obj);
+        obj = fazerService.criarFazer(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleta(@PathVariable Integer id) {
-        service.deleteFazer(id);
+        fazerService.deleteFazer(id);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Fazer> atualiza(@PathVariable Integer id, @RequestBody Fazer obj){
-        Fazer newObj = service.atualizaFazer(id,obj);
+        Fazer newObj = fazerService.atualizaFazer(id,obj);
         return ResponseEntity.ok().body(newObj);
     }
 
