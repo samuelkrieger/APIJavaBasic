@@ -28,7 +28,6 @@ public class Fazer implements Serializable {
     }
 
     public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean bool) {
-        this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataParaFinalizar = dataParaFinalizar;
