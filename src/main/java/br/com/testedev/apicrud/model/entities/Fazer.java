@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity(name = "fazer")
@@ -21,13 +21,13 @@ public class Fazer implements Serializable {
     private Integer id;
     private String titulo;
     private String descricao;
-    private LocalDateTime dataParaFinalizar;
+    private Date dataParaFinalizar;
     private Boolean finalizado = false;
 
     public Fazer() {
     }
 
-    public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean bool) {
+    public Fazer(String titulo, String descricao, Date dataParaFinalizar, Boolean bool) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataParaFinalizar = dataParaFinalizar;
@@ -58,11 +58,11 @@ public class Fazer implements Serializable {
         this.descricao = descricao;
     }
 
-    public LocalDateTime getDataParaFinalizar() {
+    public Date getDataParaFinalizar() {
         return dataParaFinalizar;
     }
 
-    public void setDataParaFinalizar(LocalDateTime dataParaFinalizar) {
+    public void setDataParaFinalizar(Date dataParaFinalizar) {
         this.dataParaFinalizar = dataParaFinalizar;
     }
 

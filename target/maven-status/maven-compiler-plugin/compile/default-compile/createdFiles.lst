@@ -1,0 +1,10 @@
+br\com\testedev\apicrud\controllers\exceptions\StandardError.class
+br\com\testedev\apicrud\controllers\exceptions\ControllerExceptionHandler.class
+br\com\testedev\apicrud\controllers\FazerController.class
+br\com\testedev\apicrud\configuration\TestConfig.class
+br\com\testedev\apicrud\service\DBService.class
+br\com\testedev\apicrud\service\FazerService.class
+br\com\testedev\apicrud\ApicrudApplication.class
+br\com\testedev\apicrud\model\repository\FazerRepository.class
+br\com\testedev\apicrud\model\entities\Fazer.class
+br\com\testedev\apicrud\service\exceptions\ObjectNotFoundException.class

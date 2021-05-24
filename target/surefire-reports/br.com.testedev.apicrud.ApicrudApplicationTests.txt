@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.testedev.apicrud.ApicrudApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.343 s - in br.com.testedev.apicrud.ApicrudApplicationTests
