@@ -1,6 +1,5 @@
 package br.com.testedev.apicrud.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -9,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity(name = "fazer")
@@ -22,15 +21,13 @@ public class Fazer implements Serializable {
     private Integer id;
     private String titulo;
     private String descricao;
-
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date dataParaFinalizar;
+    private LocalDateTime dataParaFinalizar;
     private Boolean finalizado = false;
 
     public Fazer() {
     }
 
-    public Fazer(String titulo, String descricao, Date dataParaFinalizar, Boolean bool) {
+    public Fazer(String titulo, String descricao, LocalDateTime dataParaFinalizar, Boolean bool) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataParaFinalizar = dataParaFinalizar;
@@ -61,11 +58,11 @@ public class Fazer implements Serializable {
         this.descricao = descricao;
     }
 
-    public Date getDataParaFinalizar() {
+    public LocalDateTime getDataParaFinalizar() {
         return dataParaFinalizar;
     }
 
-    public void setDataParaFinalizar(Date dataParaFinalizar) {
+    public void setDataParaFinalizar(LocalDateTime dataParaFinalizar) {
         this.dataParaFinalizar = dataParaFinalizar;
     }
 
