@@ -4,4 +4,4 @@ export interface Fazer {
     descricao?: String,
     dataParaFinalizar: Date,
     finalizado: Boolean
-}
+} 

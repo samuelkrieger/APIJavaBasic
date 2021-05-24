@@ -17,6 +17,11 @@ mat-card {
     padding: .2rem;
 }
 
+mat-card-subtitle {
+    padding: 5px;
+    padding-left: ;
+    font-size: 20px;
+}
 
 p {
     text-align: end;
@@ -24,6 +29,9 @@ p {
     color: rgb(114,111,111);
     margin-bottom: 0%;
 }
+
+
+
 
 .actions {
     text-align:end;

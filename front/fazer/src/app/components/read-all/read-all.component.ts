@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Fazer } from 'src/app/models/fazer';
+import { FazerService } from 'src/app/services/fazer.service';
 
 @Component({
   selector: 'app-read-all',
@@ -8,27 +9,20 @@ import { Fazer } from 'src/app/models/fazer';
 })
 export class ReadAllComponent implements OnInit {
 
-  list: Fazer[] = [
-    {
-      titulo: "Teste 1",
-      dataParaFinalizar: new Date,
-      finalizado: false
-    },
-    {
-      titulo: "Teste 2",
-      dataParaFinalizar: new Date,
-      finalizado: false
-    },
-    {
-      titulo: "Jeff",
-      dataParaFinalizar: new Date,
-      finalizado: false
-    }
-  ]
+  list: Fazer[] = [];
 
-  constructor() { }
+  constructor(private service: FazerService) { }
 
   ngOnInit(): void {
+    this.findAll();
   }
+
+  findAll(): void{
+    this.service.findAll().subscribe((resposta)=>{
+      this.list = resposta;
+    })
+  }
+
+
 
 }
