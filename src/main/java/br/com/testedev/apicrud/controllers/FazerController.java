@@ -97,6 +97,7 @@ public class FazerController {
     @ApiResponses({
             @ApiResponse(code = 201, message = "encontrados", response = ResponseEntity.class),
             @ApiResponse(code = 400, message = "nao-encontrados"),
+         
     })
     public ResponseEntity<List<Fazer>> listTodas() {
         List<Fazer> list = fazerService.findAll();

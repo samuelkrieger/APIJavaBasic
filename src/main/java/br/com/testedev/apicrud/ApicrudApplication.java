@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApicrudApplication implements CommandLineRunner {
 
-	// @Autowired
-	// private FazerRepository fazerRepository;
 
 
 	public static void main(String[] args) {
